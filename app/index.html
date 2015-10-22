@@ -14,16 +14,22 @@
   </head>
   <body>
     <div class="l-container">
-      <h1>Hello World!</h1>
+      <div class="book"></div>
       <p>
         <img src="images/icon-description.png" alt="icon" />
       </p>
       <p>
         <img src="images/separator.png" alt="separator" />
       </p>
+      <div class="manual-uuid">
+        <label>Знаете код книжки? Можете ее найти.</label>
+        <input type="text"/>
+        <button class="submit-uuid">Поиск</button>
+      </div>
     </div>
 
     <!-- build:js scripts/main.js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>
