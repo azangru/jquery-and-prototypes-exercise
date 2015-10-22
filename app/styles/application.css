@@ -9,9 +9,14 @@ body {
   text-align: center;
 }
 
-.authors {
-  font-site: 1.5em;
+.title {
+  font-size: 2em;
   font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.authors {
+  font-size: 1.5em;
   margin-bottom: 1em;
 }
 

@@ -1,11 +1,13 @@
 /* global $ */
 'use strict';
 
+var Book; // moved to global scope for testability
+
 $(function() {
 
   // Book-related functionality
 
-  var Book = function(bookUuid){
+  Book = function(bookUuid){
     this.bookUuid = bookUuid;
   };
 
@@ -29,12 +31,14 @@ $(function() {
   Book.prototype.display = function(){
     var self = this;
     $('.book').empty();
+    var titleBlock = $('<div>').addClass('title').html(this.title);
     var authorsBlock = $('<div>').addClass('authors').html(this.authors);
     var cover = '<img src="' + this.cover.url + '" alt="' + this.title +
       '" width="' + this.cover.width + '" height="' + this.cover.height + '"/>';
     var coverBlock = $('<div>').append(cover).click(function(){
         self.findRelated(self.uuid);
     });
+    $('.book').append(titleBlock);
     $('.book').append(authorsBlock);
     $('.book').append(coverBlock);
   };
@@ -43,8 +47,6 @@ $(function() {
     var self = this;
     var url = 'https://bookmate.com/a/4/d/' + uuid + '/related.json';
     $.get(url, function(data) {
-      console.log(data);
-      console.log(data[0]);
       self.setBookProperties(data[0]);
       self.display();
     });
